@@ -2,12 +2,21 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
+import io
+import zipfile
 
 
 class Utils:
 
     def __init__(self):
-        self.merged_df = pd.read_csv('merged_df.csv')
+        zip_file_path = "merged_df.zip"
+        csv_file_name = "merged_df.csv"
+
+        with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
+            csv_data = zip_file.read(csv_file_name)
+            csv_string = csv_data.decode('utf-8')
+            csv_io = io.StringIO(csv_string)
+            self.merged_df = pd.read_csv(csv_io)
 
     def fig1(self, start, stop):
         activities = ["Sports", "PersonalCare", "Socializing", "Eating", "CareGiving", "Travel", "Shopping",
