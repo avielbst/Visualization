@@ -13,7 +13,7 @@ class Utils:
         self.merged_df = self.fetch_and_clean_data()
       
     @st.cache_resource
-    def fetch_and_clean_data():
+    def fetch_and_clean_data(self):
         with zipfile.ZipFile("merged_df.zip", 'r') as zip_file:
             csv_data = zip_file.read("merged_df.csv")
             csv_string = csv_data.decode('utf-8')
