@@ -174,10 +174,10 @@ with fig3:
                 "The flow might be a bit complicated at first, but can be used to understand which activities are more popular than others "
                 "and define the its population.<br>"
                 "Based on chosen time and activities the flow will focus on relevant data<br><br>"
-                "Please choose time and up to 3 activities on the filter panel on the right."
+                "Please choose time and up to 2 activities on the filter panel on the right."
                 "</p>", unsafe_allow_html=True)
     st.markdown("<p class=warn>"
-                "Note: After 3 activities are chosen, any additional choices will be ignored!!"
+                "Note: After 2 activities are chosen, any additional choices will be ignored!!"
                 "</p>", unsafe_allow_html=True)
     col31, col32 = st.columns([9, 1])
     with col32:
@@ -195,10 +195,10 @@ with fig3:
 
         activities = ("Sports", "PersonalCare", "Socializing", "Eating", "CareGiving", "Travel",
                       "Shopping", "Housework", "Calls", "Work")
-        cb_sports = st.checkbox("Sports")
+        cb_sports = st.checkbox("Sports", value=True)
         cb_PersonalCare = st.checkbox("PersonalCare")
         cb_Socializing = st.checkbox("Socializing")
-        cb_Eating = st.checkbox("Eating")
+        cb_Eating = st.checkbox("Eating", value=True)
         cb_CareGiving = st.checkbox("CareGiving")
         cb_Travel = st.checkbox("Travel")
         cb_Shopping = st.checkbox("Shopping")
@@ -210,7 +210,7 @@ with fig3:
         for activity, value in zip(activities,
                                    [cb_sports, cb_PersonalCare, cb_Socializing, cb_Eating, cb_CareGiving, cb_Travel,
                                     cb_Shopping, cb_Housework, cb_Calls, cb_Work]):
-            if value and len(cb_acts) < 3:
+            if value and len(cb_acts) < 2:
                 cb_acts.append(activity)
 
     with col31:
