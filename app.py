@@ -53,9 +53,9 @@ with fig1:
 
     st.markdown(f'<p class="desc">Bar plot showing how many Americans do each of the activities in the chosen'
                 ' time range.<br>'
-                'Each activity counts number of Americans of two groups:<br>'
-                '1. With small kids (<18)<br>'
-                '2. Without kids or kids that are >18<br>'
+                'Each activity counts the number of Americans with:<br>'
+                '1. Young children (<18)<br>'
+                '2. No children (or children that are >18)<br>'
                 'This might help to better understand if'
                 ' children are a factor that affects time usage among Americans<br><br>'
                 'Please choose time range below:</p>', unsafe_allow_html=True)
@@ -104,9 +104,9 @@ with fig2:
     st.markdown(f"<h3 style='color: black; font-size: 40px;'>Activity Popularity By Geographical Location</h3>", unsafe_allow_html=True)
     st.markdown('<p class="desc">The map shows the amount of Americans that do the specified activity in'
                 ' different geographical locations (states) based on the chosen time range.<br>'
-                'Choosing time and activity will make the map focus on relevant data only<br><br>'
-                'Numbers represent the proportion of people of the specified state of total people participated in'
-                ' this survey in this state.</p>', unsafe_allow_html=True)
+                'Choosing time and activity will make the map focus on relevant data.<br><br>'
+                'Numbers represent the proportion of people in the specified state of total people participated in'
+                ' this survey from this state.</p>', unsafe_allow_html=True)
     col1, col2 = st.columns([3, 1])
 
     with col2:
@@ -166,11 +166,12 @@ with fig3:
     st.markdown(f"<h3 style='color: black; font-size: 40px;'>Activity Popularity Flow</h3>",
                 unsafe_allow_html=True)
     st.markdown("<p class=desc>"
-                "A flow showing how sex and age affect the popularity of different activities. The flow consists of 3"
-                " layers that represent the splits in data:<br>"
-                "Left layer representing split based on sex - blue for male and pink for female."
-                " Middle layer splits data based on age.<br>"
-                "The flow can be used to understand which activities are more popular than others, "
+                "A flow showing how sex and age affect the popularity of different activities. The flow (left to right) consists of 3"
+                " layers where each layer represent a split in data.<br>"
+                "Left layer representing split based on gender - blue for male and pink for female.<br>"
+                "Middle layer splits data based on age.<br>"
+                "The size of each link is bigger as the number of people it represents is higher<br>"
+                "The flow might be a bit complicated at first, but can be used to understand which activities are more popular than others "
                 "and define the its population.<br>"
                 "Based on chosen time and activities the flow will focus on relevant data<br><br>"
                 "Please choose time and up to 3 activities on the filter panel on the right."
