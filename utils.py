@@ -10,11 +10,11 @@ import streamlit as st
 class Utils:
 
     def __init__(self):
-        self.merged_df = self.fetch_and_clean_data("merged_df.zip")
+        self.merged_df = self.fetch_and_clean_data()
       
-    @st.cache_data
-    def fetch_and_clean_data(path):
-        with zipfile.ZipFile(path, 'r') as zip_file:
+    @st.cache_resource
+    def fetch_and_clean_data():
+        with zipfile.ZipFile("merged_df.zip", 'r') as zip_file:
             csv_data = zip_file.read("merged_df.csv")
             csv_string = csv_data.decode('utf-8')
             csv_io = io.StringIO(csv_string)
