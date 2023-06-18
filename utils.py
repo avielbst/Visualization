@@ -9,15 +9,16 @@ import zipfile
 class Utils:
 
     def __init__(self):
-        zip_file_path = "merged_df.zip"
-        csv_file_name = "merged_df.csv"
-
-        with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
-            csv_data = zip_file.read(csv_file_name)
+        self.merged_df = self.fetch_and_clean_data("merged_df.zip")
+      
+    @st.cache_data
+    def fetch_and_clean_data(path):
+        with zipfile.ZipFile(path, 'r') as zip_file:
+            csv_data = zip_file.read("merged_df.csv")
             csv_string = csv_data.decode('utf-8')
             csv_io = io.StringIO(csv_string)
-            self.merged_df = pd.read_csv(csv_io)
-
+        return pd.read_csv(csv_io)
+    
     def fig1(self, start, stop):
         activities = ["Sports", "PersonalCare", "Socializing", "Eating", "CareGiving", "Travel", "Shopping",
                       "Housework", "Calls", "Work"]
