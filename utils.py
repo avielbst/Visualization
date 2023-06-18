@@ -6,19 +6,19 @@ import io
 import zipfile
 import streamlit as st
 
+@st.cache_resource
+def fetch_and_clean_data():
+     with zipfile.ZipFile("merged_df.zip", 'r') as zip_file:
+        csv_data = zip_file.read("merged_df.csv")
+        csv_string = csv_data.decode('utf-8')
+        csv_io = io.StringIO(csv_string)
+    return pd.read_csv(csv_io)
+
 
 class Utils:
 
     def __init__(self):
-        self.merged_df = self.fetch_and_clean_data()
-      
-    @st.cache_resource
-    def fetch_and_clean_data(self):
-        with zipfile.ZipFile("merged_df.zip", 'r') as zip_file:
-            csv_data = zip_file.read("merged_df.csv")
-            csv_string = csv_data.decode('utf-8')
-            csv_io = io.StringIO(csv_string)
-        return pd.read_csv(csv_io)
+        self.merged_df = fetch_and_clean_data()
     
     def fig1(self, start, stop):
         activities = ["Sports", "PersonalCare", "Socializing", "Eating", "CareGiving", "Travel", "Shopping",
