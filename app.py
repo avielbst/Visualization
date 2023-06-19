@@ -172,7 +172,7 @@ with fig3:
                 "Middle layer splits data based on age.<br>"
                 "The size of each link is bigger as the number of people it represents is higher<br>"
                 "The flow might be a bit complicated at first, but can be used to understand which activities are more popular than others "
-                "and define the its population.<br>"
+                "while enabling to define and analyze their population.<br>"
                 "Based on chosen time and activities the flow will focus on relevant data<br><br>"
                 "Please choose time and up to 2 activities on the filter panel on the right."
                 "</p>", unsafe_allow_html=True)
