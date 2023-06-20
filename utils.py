@@ -149,7 +149,7 @@ class Utils:
                 target=target,
                 value=value,
                 color=color,
-                line=dict(color='black', width=0.5),
+                line=dict(color='black', width=1),
 
 
             )
