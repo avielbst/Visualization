@@ -122,7 +122,7 @@ class Utils:
         total_records = 0
         max_count = group['count'].max()
         for i, row in group.iterrows():
-            if row['count'] < 0.5*max_count:
+            if row['count'] < 0.01*max_count:
                 continue
             source.append(labels.index('Male' if row['tesex'] == 1 else 'Female'))
             target.append(labels.index(row['age_group']))
